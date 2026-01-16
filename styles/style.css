@@ -495,60 +495,56 @@ header {
     }
 }
 
-@media (max-width: 768px) {
-    /* Ajuste de Hero para móviles */
-    .hero-typography h1 {
-        font-size: 18vw; /* Texto masivo pero controlado */
-        letter-spacing: -2px;
+   @media (max-width: 768px) {
+    .reveal-img, 
+    .reveal-text, 
+    .reveal-item,
+    .project-item,
+    .ticker-wrap {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+        transition: none !important;
     }
 
-    .hero-sub p {
-        font-size: 1.1rem;
+    .img-container, 
+    .hero-image-wrapper,
+    .vision-image {
+        opacity: 1 !important;
+        height: auto !important;
+        min-height: 300px;
+        overflow: visible !important;
+        display: block !important;
     }
 
-    /* Ocultar cursor en dispositivos táctiles */
-    .cursor-target {
-        display: none;
+    .img-container img,
+    .hero-img {
+        opacity: 1 !important;
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
     }
-
-    * {
-        cursor: auto !important;
-    }
-
-    /* Ticker más rápido en móvil para dar dinamismo */
-    .ticker-item {
-        font-size: 0.8rem;
-    }
-
-    /* Ajuste de Secciones */
-    #work, #vision, #services, #contact {
-        padding: 4rem 1.5rem;
-    }
-
-    .section-title h2 {
-        font-size: 2.5rem;
-    }
-
-    /* Lista de servicios simplificada para pulgares */
-    .service-row {
-        padding: 2rem 0;
+    .projects-grid {
+        display: flex !important;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+        gap: 4rem;
     }
 
-    .num {
-        margin-right: 0;
-        font-size: 1rem;
+    .project-item {
+        width: 100% !important;
+        margin: 0 !important;
+        display: block !important;
     }
 
-    .arrow {
-        display: none; /* Menos ruido visual */
-    }
-
-    .big-mail {
-        font-size: 7vw;
-        word-break: break-all; /* Evita que el mail rompa el layout */
+    .more-gallery-trigger {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        margin-top: 3rem;
+        pointer-events: auto !important;
     }
 }
 
