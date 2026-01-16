@@ -24,21 +24,32 @@
 }
 
 .archive-header {
+    margin-top: 4rem;
     margin-bottom: 4rem;
     border-bottom: 1px solid #1a1a1a;
     padding-bottom: 2rem;
+    
+    /* FUERZA LA DIRECCIÓN VERTICAL */
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; /* Alineado a la izquierda */
+    gap: 0.5rem; /* Espacio controlado entre h1 y p */
 }
 
 .archive-header h1 {
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Tamaño fluido para móvil */
     text-transform: uppercase;
+    line-height: 1;
+    margin: 0; /* Limpiamos márgenes por defecto */
 }
 
 .archive-header p {
     font-family: var(--font-serif);
     font-size: 1.2rem;
+    font-style: italic; /* Toque editorial */
     color: #666;
+    max-width: 600px; /* Evita que el texto sea demasiado largo para leer */
 }
 
 /* Grid Uniforme */
