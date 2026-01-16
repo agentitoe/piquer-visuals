@@ -16,7 +16,22 @@
 </head>
 
 <body>
-
+    <script>
+        // Añadir al inicio de main.js
+        document.addEventListener("DOMContentLoaded", () => {
+            // Detectar si es pantalla pequeña (móvil)
+            if (window.innerWidth < 768) {
+                // Forzar que todos los elementos reveal sean visibles inmediatamente
+                const revealElements = document.querySelectorAll('.reveal-img, .reveal-text, .reveal-border');
+                revealElements.forEach(el => {
+                    el.classList.add('active');
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.style.clipPath = 'none';
+                });
+            }
+        });
+    </script>
     <div class="cursor-target"></div>
 
     <header id="main-header">
@@ -74,7 +89,7 @@
             <div class="projects-grid">
                 <article class="project-item item-wide reveal-img">
                     <div class="img-container">
-                        <img src="../images/2Q5A2581.webp" alt="F1 Racing">
+                        <img src="images/2Q5A2581.webp" alt="F1 Racing">
                         <div class="project-overlay">
                             <h3>Alemania vs Italia</h3>
                             <p>En el punto de mira</p>
@@ -84,7 +99,7 @@
 
                 <article class="project-item item-tall reveal-img delay-1">
                     <div class="img-container">
-                        <img src="../images/2Q5A8716.webp" alt="Boxing Training">
+                        <img src="images/2Q5A8716.webp" alt="Boxing Training">
                         <div class="project-overlay">
                             <h3>Precisión pura</h3>
                             <p>Captación del golpeo</p>
@@ -94,7 +109,7 @@
 
                 <article class="project-item item-offset reveal-img">
                     <div class="img-container">
-                        <img src="../images/2Q5A6609-3.webp" alt="Tennis Serve">
+                        <img src="images/2Q5A6609-3.webp" alt="Tennis Serve">
                         <div class="project-overlay">
                             <h3>Tensión</h3>
                             <p>Hay mucho en juego dentro del campo</p>
@@ -128,7 +143,7 @@
                             enfoque busca la estética del esfuerzo, la soledad del atleta y la geometría del movimiento.
                             De
                             la pista a la editorial.</p>
-                        <img src="../images/2Q5A9733 - 02-01-2026 14-18-59.webp" class="signature-img"
+                        <img src="images/2Q5A9733 - 02-01-2026 14-18-59.webp" class="signature-img"
                             alt="Photographer in action">
                     </div>
                 </div>

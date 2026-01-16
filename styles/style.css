@@ -495,59 +495,6 @@ header {
     }
 }
 
-   @media (max-width: 768px) {
-    .reveal-img, 
-    .reveal-text, 
-    .reveal-item,
-    .project-item,
-    .ticker-wrap {
-        opacity: 1 !important;
-        transform: none !important;
-        visibility: visible !important;
-        clip-path: none !important;
-        -webkit-clip-path: none !important;
-        transition: none !important;
-    }
-
-    .img-container, 
-    .hero-image-wrapper,
-    .vision-image {
-        opacity: 1 !important;
-        height: auto !important;
-        min-height: 300px;
-        overflow: visible !important;
-        display: block !important;
-    }
-
-    .img-container img,
-    .hero-img {
-        opacity: 1 !important;
-        position: relative !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
-    }
-    .projects-grid {
-        display: flex !important;
-        flex-direction: column;
-        gap: 4rem;
-    }
-
-    .project-item {
-        width: 100% !important;
-        margin: 0 !important;
-        display: block !important;
-    }
-
-    .more-gallery-trigger {
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: flex !important;
-        margin-top: 3rem;
-        pointer-events: auto !important;
-    }
-}
-
 /* Soporte para pantallas con muesca (Notch) */
 @supports (padding: env(safe-area-inset-top)) {
     header {
@@ -588,132 +535,86 @@ header {
     font-size: 1.2rem;
     font-family: var(--font-body);
 }
-
-/* --- FIX DE VISIBILIDAD EN MÓVIL (375px) --- */
-
 @media (max-width: 768px) {
-    /* 1. Ajuste del Grid: Pasamos de 12 columnas a 1 sola */
-    .projects-grid {
-        display: block !important; /* Evitamos conflictos de Flexbox/Grid */
-        padding: 0;
+    
+    /* 1. DESACTIVAR ANIMACIONES JS Y CSS */
+    .reveal-img, .reveal-text, .reveal-item, .project-item, .ticker-wrap, .service-row {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+        transition: none !important;
     }
 
-    /* 2. Forzar altura en los contenedores de imagen */
+    /* 2. REPARAR EL GRID Y CONTENEDORES */
+    .projects-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        padding: 0 !important;
+    }
+
     .project-item {
         width: 100% !important;
-        margin-bottom: 3rem !important;
-        height: auto !important; /* Dejamos que el hijo mande */
+        margin: 0 !important;
+        height: auto !important;
         display: block !important;
+        grid-column: auto !important; /* Resetea el grid complejo */
     }
 
+    /* 3. FORZAR VISIBILIDAD DE LA IMAGEN */
+    /* Quitamos aspect-ratio y dejamos que la imagen mande */
     .img-container {
-        position: relative;
-        width: 100%;
-        /* Esto es clave: si Safari no ve altura, no pinta nada */
-        aspect-ratio: 4 / 5; /* Formato vertical editorial */
-        min-height: 400px; 
-        background: #111; /* Fondo para que sepas si el contenedor está ahí */
-        overflow: hidden;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 300px; /* Espacio reservado por seguridad */
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+        overflow: visible !important;
+        background: #111; /* Fondo de carga */
     }
 
     .img-container img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100% !important;
+        position: relative !important; /* Importante: relative para flujo natural */
+        width: 100% !important;
+        height: auto !important; /* Mantiene proporción original */
         object-fit: cover;
-        opacity: 1 !important; /* Forzamos visibilidad */
+        opacity: 1 !important;
         visibility: visible !important;
+        display: block !important;
     }
 
-    /* 3. El Hero en móvil suele fallar por el height: 100vh */
+    /* 4. HERO SECTION FIX */
     #hero {
-        height: 80vh; /* Un poco menos para dejar ver el scroll */
+        height: 80vh !important; /* Evita saltos por la barra de navegación iOS */
         min-height: 500px;
     }
-
+    
     .hero-image-wrapper {
+        position: absolute !important;
         height: 100% !important;
-    }
-}
-
-/* 4. Fix para el efecto de revelado (Reveal Animation) */
-/* Si el JS no se ejecuta, las imágenes se quedarían invisibles. 
-   Esto asegura que en móvil siempre se vean por si acaso. */
-   @media (max-width: 768px) {
-    /* --- SECCIÓN VISION (Imagen y Texto) --- */
-    #vision {
-        display: flex !important;
-        flex-direction: column !important; /* Texto arriba, imagen abajo */
-        height: auto !important;
-        padding: 4rem 1.5rem !important;
-        gap: 2rem;
-    }
-
-    .vision-text {
         width: 100% !important;
-        padding: 0 !important;
-        position: relative !important;
-        left: 0 !important;
     }
 
-    .vision-text h2 {
-        font-size: 2.8rem !important;
-        line-height: 1.1;
+    /* 5. FIX TEXTOS GRANDES (Evita desbordamiento) */
+    .hero-typography h1 { font-size: 15vw !important; }
+    .section-title h2 { font-size: 2.5rem !important; }
+    .vision-text h2 { font-size: 2rem !important; }
+    .big-mail { font-size: 8vw !important; word-break: break-all; }
+
+    /* 6. OCULTAR ELEMENTOS QUE MOLESTAN EN MÓVIL */
+    .project-info-external, .signature-img, .cursor-target {
+        display: none !important;
     }
 
-    .vision-image {
-        width: 100% !important;
-        height: 400px !important; /* Altura fija para evitar que desaparezca */
-        position: relative !important;
-        right: 0 !important;
-        top: 0 !important;
-    }
-
-    .vision-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-
-    /* --- BOTÓN MOSTRAR MÁS --- */
+    /* 7. BOTONES Y NAVEGACIÓN */
     .more-gallery-trigger {
         display: flex !important;
-        visibility: visible !important;
         opacity: 1 !important;
-        padding: 2rem 0;
-        margin-top: 1rem;
-    }
-
-    .btn-more-plus {
-        width: 100%; /* Más fácil de pulsar en móvil */
-        justify-content: center;
-        padding: 1.5rem !important;
-    }
-
-    /* --- SECCIÓN CONTACTO (Email gigante) --- */
-    #contact {
-        height: auto !important;
-        padding: 6rem 1.5rem !important;
-        display: block !important;
-    }
-
-    .big-mail {
-        font-size: 10vw !important; /* Tamaño dinámico para que no se corte */
-        line-height: 1;
-        word-break: break-all !important; /* Rompe el mail si es muy largo */
-        display: block !important;
         margin-top: 2rem;
     }
-
-    /* --- RESET DE ANIMACIONES (Garantía de visualización) --- */
-    .reveal-text, .reveal-img, .reveal-item {
-        opacity: 1 !important;
-        transform: none !important;
-        clip-path: none !important;
-        visibility: visible !important;
-    }
+    
+    .nav-links { display: none !important; } /* Ocultamos menú desktop */
 }
