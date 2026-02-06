@@ -343,6 +343,36 @@ header {
     filter: grayscale(100%);
 }
 
+.social-media {
+    margin-top: 3rem; 
+}
+
+.social-icons {
+    display: flex;
+    gap: 2rem; /* Aumentado el espacio entre iconos */
+}
+
+.social-icons a {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 70px; /* Aumentado ancho del botón */
+    height: 70px; /* Aumentado altura del botón */
+    border: 2px solid var(--accent); 
+    border-radius: 50%; 
+    color: var(--text-muted);
+    font-size: 2.5rem; /* Aumentado tamaño del icono */
+    transition: all 0.3s var(--easing);
+}
+
+.social-icons a:hover {
+    background-color: var(--accent); 
+    color: var(--text-primary); 
+    transform: translateY(-5px); 
+    border-color: var(--highlight);
+}
+
+
 /* --- 8. Services (Swiss List) --- */
 #services { padding: 6rem 5%; }
 .section-header-row { display: flex; justify-content: space-between; border-bottom: 2px solid #fff; padding-bottom: 1rem; margin-bottom: 2rem;}
