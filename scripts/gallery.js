@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. LISTA DE ARCHIVOS
     const imageFiles = [
         "2Q5A0013-2.webp", "2Q5A0004.webp", "2Q5A0666.webp", "2Q5A0886.webp", "2Q5A0906.webp",
-        "2Q5A0936.webp", "2Q5A1148.webp", "2Q5A1316.webp", "2Q5A1332.webp",
+        "2Q5A0936.webp", "2Q5A1148.webp", "2Q5A1316.webp", "2Q5A1332.webp",   "2Q5A007.webp" ,
         "2Q5A1333-2.webp", "2Q5A1346.webp", "2Q5A1627-2.webp", "2Q5A1649.webp",
         "2Q5A2012-2.webp", "2Q5A2072.webp", "2Q5A2157.webp", "2Q5A2280.webp",
         "2Q5A2427.webp", "2Q5A2581.webp", "2Q5A2698-2.webp", "2Q5A2809.webp",
