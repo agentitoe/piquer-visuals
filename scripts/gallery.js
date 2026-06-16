@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. LISTA DE ARCHIVOS
     const imageFiles = [
-        "2Q5A007.webp","2Q5A0013-2.webp", "2Q5A0004.webp", "2Q5A0666.webp", "2Q5A0886.webp", 
+        "2Q5A0013-2.webp", "2Q5A0004.webp", "2Q5A0666.webp", "2Q5A0886.webp", 
         "2Q5A0906.webp",
         "2Q5A0936.webp", "2Q5A1148.webp", "2Q5A1316.webp", "2Q5A1332.webp",
         "2Q5A1333-2.webp", "2Q5A1346.webp", "2Q5A1627-2.webp", "2Q5A1649.webp",
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "2Q5A8663-2.webp", "2Q5A8663.webp", "2Q5A8665.webp", "2Q5A8701.webp",
         "2Q5A8716.webp", "2Q5A8757.webp", "2Q5A8807.webp", "2Q5A9043.webp",
         "2Q5A9428.webp", "2Q5A9459.webp", "2Q5A9544.webp", "2Q5A9593.webp"
+        "2Q5A0007.webp" ,
     ];
 
     // 2. CONFIGURACIÓN (Variables locales fijas)
